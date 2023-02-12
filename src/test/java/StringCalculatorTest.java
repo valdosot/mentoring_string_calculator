@@ -80,12 +80,19 @@ class StringCalculatorTest {
     }
 
     @Test
-    void shouldAllowMultipleDelimiters() {
+    void shouldAllowDelimitersOfAnyLengt() {
 
         Integer actual = stringCalculator.add("//[***]\n1***2***3");
 
         assertThat(actual).isEqualTo(6);
     }
 
+    @Test
+    void shouldAllowMultiplesDelimiters() {
+
+        Integer actual = stringCalculator.add("//[*][%]\n1*2%3");
+
+        assertThat(actual).isEqualTo(6);
+    }
 
 }

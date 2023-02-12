@@ -13,7 +13,7 @@ public class StringCalculator {
             return 0;
         }
 
-        String regex = "[//***;,\n]";
+        String regex = "[//***;%,\n]";
         input = input.replace("[", "").replace("]", "");
 
         List<String> negativesValues =
