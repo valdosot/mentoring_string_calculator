@@ -35,4 +35,13 @@ class StringCalculatorTest {
 
         assertThat(actual).isEqualTo(3);
     }
+
+    @Test
+    void shouldReturnTheSumOfUnknownAmountOfNumbers() {
+
+        Integer actual = stringCalculator.add("1,2,3,4,5");
+
+        assertThat(actual).isEqualTo(15);
+    }
+
 }
