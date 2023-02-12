@@ -6,10 +6,11 @@ public class StringCalculator {
             return 0;
         }
 
-        String regex = "[,\n]";
+        String regex = "[//;,\n]";
 
         return Arrays.stream(input.split(regex))
                 .map(String::trim)
+                .filter(x -> !x.isEmpty())
                 .mapToInt(Integer::parseInt)
                 .sum();
 

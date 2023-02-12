@@ -52,4 +52,12 @@ class StringCalculatorTest {
         assertThat(actual).isEqualTo(15);
     }
 
+    @Test
+    void shouldSupportDifferentDelimiters() {
+
+        Integer actual = stringCalculator.add("//;\n1;2");
+
+        assertThat(actual).isEqualTo(3);
+    }
+
 }
