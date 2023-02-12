@@ -3,12 +3,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StringCalculator {
+    public static void main(String[] args) {
+        StringCalculator sc = new StringCalculator();
+        System.out.println(sc.add("//[***]\n1***2***3"));
+    }
+
     public Integer add(String input) {
         if (input.isEmpty()) {
             return 0;
         }
 
-        String regex = "[//;,\n]";
+        String regex = "[//***;,\n]";
+        input = input.replace("[", "").replace("]", "");
 
         List<String> negativesValues =
                 Arrays.stream(input.split(regex))
