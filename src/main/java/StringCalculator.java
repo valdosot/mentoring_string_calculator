@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringCalculator {
     public Integer add(String input) {
@@ -7,6 +9,16 @@ public class StringCalculator {
         }
 
         String regex = "[//;,\n]";
+
+        List<String> negativesValues =
+                Arrays.stream(input.split(regex))
+                        .map(String::trim)
+                        .filter((x) -> x.startsWith("-"))
+                        .collect(Collectors.toList());
+
+        if (!negativesValues.isEmpty()) {
+            throw new ArithmeticException("negatives not allowed\n" + negativesValues);
+        }
 
         return Arrays.stream(input.split(regex))
                 .map(String::trim)

@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class StringCalculatorTest {
 
@@ -58,6 +60,15 @@ class StringCalculatorTest {
         Integer actual = stringCalculator.add("//;\n1;2");
 
         assertThat(actual).isEqualTo(3);
+    }
+
+    @Test
+    void shouldAvoidNegativeValues() {
+        assertThatThrownBy(() -> {
+            Integer actual = stringCalculator.add("//;\n1;2,-3,-4");
+
+        }).isInstanceOf(ArithmeticException.class)
+                .hasMessageContaining("negatives not allowed\n[-3, -4]");
     }
 
 }
