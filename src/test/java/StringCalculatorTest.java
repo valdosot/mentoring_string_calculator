@@ -95,4 +95,11 @@ class StringCalculatorTest {
         assertThat(actual).isEqualTo(6);
     }
 
+    @Test
+    void shouldHandleMultipleDelimitersWithLengthLongerThanOneChar() {
+
+        Integer actual = stringCalculator.add("//[***][%%%]\n1***2%%%3");
+
+        assertThat(actual).isEqualTo(6);
+    }
 }
