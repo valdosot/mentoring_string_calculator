@@ -6,7 +6,7 @@ public class StringCalculator {
             return 0;
         }
 
-        String regex = ",";
+        String regex = "[,\n]";
 
         return Arrays.stream(input.split(regex))
                 .map(String::trim)
