@@ -71,4 +71,13 @@ class StringCalculatorTest {
                 .hasMessageContaining("negatives not allowed\n[-3, -4]");
     }
 
+    @Test
+    void shouldAvoidNumbersBiggersThan1000() {
+
+        Integer actual = stringCalculator.add("//;\n1;2, 1005");
+
+        assertThat(actual).isEqualTo(3);
+    }
+
+
 }

@@ -24,6 +24,7 @@ public class StringCalculator {
                 .map(String::trim)
                 .filter(x -> !x.isEmpty())
                 .mapToInt(Integer::parseInt)
+                .filter(x -> x < 1001)
                 .sum();
 
     }
